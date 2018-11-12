@@ -1,15 +1,16 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>文章列表</title>
+    <title>{{ blog_type.type_name }}</title>
 </head>
 <body>
     <div>
         <h3><a href="{% url 'article_list' %}">个人博客网站</a></h3>
     </div>
-{#    得到文章的总数量,通过过滤器进行总数和长度判断 ，通过view返回关键词  {{ articles_count }}#}
-    <p>当前文章的总数量为：{{ articles|length }} </p>
+    <hr>
+{#    <h3>文章的分类：{{ blog_type.type_name }}</h3>#}
+    <p>{{ blog_type.type_name }} 文章的总数量为：{{ articles|length }} </p>
     {% for article in articles %}
 {#        <a href="/article/{{ article.pk }}">{{ article.title }}</a>#}
         <a href="{% url 'article_detail' article.id %}">{{ article.title }}</a>
@@ -17,8 +18,6 @@
     {% empty %}
         <p>--- 暂无文章，敬请期待 ---</p>
     {% endfor %}
-
-{#{{ articles }}#}
 
 </body>
 </html>

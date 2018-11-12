@@ -2,11 +2,17 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>文档详情</title>
+    <title>{{ article_obj.title }}</title>
 </head>
 <body>
-    <h2>文章标题：{{ article_obj.title }}</h2>
-    <hr>
+
+    <p>作者：{{ article_obj.author }}</p>
+    <p>发表日期：{{ article_obj.create_time|date:"Y-m-d H:n:s" }}</p>
     <p>文章内容：{{ article_obj.content }}</p>
+    <p>文章分类：
+        <a href="{% url 'article_with_type' article_obj.blog_type.pk %}">
+            {{ article_obj.blog_type }}
+        </a>
+    </p>
 </body>
 </html>
