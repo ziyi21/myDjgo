@@ -1,16 +1,14 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>{% block title %} {% endblock %}</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% block title %}
+    我的网站|首页
+{% endblock %}
+
+{% block content %}
     <div class="nav">
         <a href="{% url 'index' %}">首页</a>
         <a href="{% url 'article_list' %}">博客</a>
         <h2>{{ data }},欢迎来到我的网站</h2>
     </div>
-    <hr>
-    {% block content %}{% endblock %}
-</body>
-</html>
+
+
+{% endblock %}

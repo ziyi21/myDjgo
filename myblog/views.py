@@ -5,7 +5,7 @@ from .models import Articles, BlogType
 
 # Create your views here.
 def hello_ziyi(request):
-    return render(request, 'blog/index.html', {
+    return render(request, 'index.html', {
         'data': "hello ziyi",
     })
 

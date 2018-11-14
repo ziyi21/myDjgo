@@ -1,11 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>{{ article_obj.title }}</title>
-</head>
-<body>
 
+{% extends 'base.html' %}
+{% block title %}
+    {{ article_obj.title }}
+{% endblock %}
+
+{% block content %}
     <p>作者：{{ article_obj.author }}</p>
     <p>发表日期：{{ article_obj.create_time|date:"Y-m-d H:n:s" }}</p>
     <p>文章内容：{{ article_obj.content }}</p>
@@ -14,5 +13,4 @@
             {{ article_obj.blog_type }}
         </a>
     </p>
-</body>
-</html>
+{% endblock %}
